@@ -37,7 +37,7 @@ def main():
 
             elif command.startswith("get "):
                 # Copia un archivo del directorio remoto en el directorio local.
-                _, filename = command.split(maxsplit=1)     # Separo el nombre del archivo
+                _, filename = command.split(maxsplit=1)     # Separamos el nombre del archivo
                 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                     s.connect((SERVER_HOST, SERVER_PORT))
                     s.sendall(command.encode())
@@ -57,7 +57,7 @@ def main():
             print("Error:", e)
 
 def parse_response(response):
-    # Divide la respuesta del servidor en tres partes <length>:<status>:<texto>
+    # Parseamos o dividimos la respuesta del servidor en tres partes <long>:<status>:<texto>.
     try:
         length_str, status, text = response.split(":", 2)
         length = int(length_str)
